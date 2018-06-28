@@ -3,8 +3,8 @@
 //  OnTheMap
 //
 //  Created by Lucas César  Nogueira Fonseca on 27/06/2018.
-//  Copyright © 2018 Lucas César  Nogueira Fonseca. All rights reserved.
-//
+//  Copyright © 2017 Antonio. All rights reserved.
+// Some codes was based on ton1n8o codes 
 
 import Foundation
 

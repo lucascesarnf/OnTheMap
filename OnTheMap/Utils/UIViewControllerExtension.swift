@@ -3,7 +3,7 @@
 //  OnTheMap
 //
 //  Created by Lucas César  Nogueira Fonseca on 26/06/2018.
-//  Copyright © 2018 Lucas César  Nogueira Fonseca. All rights reserved.
+//  Copyright © 2017 Antonio. All rights reserved.
 //
 
 import Foundation
