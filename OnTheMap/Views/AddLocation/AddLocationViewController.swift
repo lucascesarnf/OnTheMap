@@ -117,7 +117,7 @@ class AddLocationViewController: GenericViewController {
         }
         
         let studentInfo = [
-            "uniqueKey": UdacityUtils.shared.getClient()?.account.key ?? "AER234",
+            "uniqueKey": UdacityUtils.shared.getClient()?.account?.key ?? "AER234",
             "firstName": firstName,
             "lastName":  lastName,
             "mapString": textFieldLocation.text ?? "",

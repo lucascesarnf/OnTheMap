@@ -17,8 +17,8 @@ struct ServiceError:CodableError {
     let code:Int?
 }
 struct LoginResponse:Codable {
-    let account: LoginAccount
-    let session: LoginSession
+    let account: LoginAccount?
+    let session: LoginSession?
 }
 
 struct LoginSession: Codable {

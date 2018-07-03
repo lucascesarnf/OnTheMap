@@ -11,6 +11,7 @@ import Foundation
 enum ServiceMethods:String {
     case post = "POST"
     case get = "GET"
+    case delete = "DELETE"
 }
 
 class UdacityUtils {
@@ -36,6 +37,7 @@ class UdacityUtils {
     
     private let baseURL = "https://www.udacity.com/"
     private let apiSession = "api/session"
+    private let filter = "?limit=100&order=-updatedAt"
     private let accountAuthSingup = "account/auth#!/signup"
     private let parse = "https://parse.udacity.com/parse/classes/StudentLocation"
     
@@ -50,7 +52,7 @@ class UdacityUtils {
     }()
     
     lazy var parseURL:URL = {
-        return URL(string:parse)!
+        return URL(string:parse + filter)!
     }()
     
     func setStudents(students: [StudentInformation]) {

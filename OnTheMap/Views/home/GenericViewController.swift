@@ -14,9 +14,9 @@ protocol GenericViewDelegate {
 }
 
 class GenericViewController: UIViewController {
-     var delegate:GenericViewDelegate?
-     let loginService = LoginService()
-     let loader = LoaderView()
+    var delegate:GenericViewDelegate?
+    let loginService = LoginService()
+    let loader = LoaderView()
     
     @IBAction func reloadDataAction(_ sender: Any) {
         getLocations() {
@@ -35,6 +35,29 @@ class GenericViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    private func logoutUser() {
+        UdacityUtils.shared.dispose()
+        self.loader.startAnimation(self)
+        loginService.deleteSession { result in
+            switch result {
+            case .Success(let data):
+                print(data)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    self.loader.stopAnimation()
+                    self.dismiss(animated: true, completion: nil)
+                })
+            case .Failure(let error):
+                var errorMessage = ""
+                if let loginError = error as? ServiceError {
+                    errorMessage = loginError.error
+                } else {
+                    errorMessage = error.localizedDescription
+                }
+                self.showAlert(errorMessage)
+            }
+        }
     }
     
     func getLocations(_ completion:(()->())? = nil ) {
