@@ -30,8 +30,7 @@ class GenericViewController: UIViewController {
     @IBAction func logoutAction(_ sender: Any) {
         let alert = UIAlertController(title: "Logout", message: "Do you want Logout?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
-            UdacityUtils.shared.dispose()
-            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+            self.logoutUser()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alert, animated: true)
